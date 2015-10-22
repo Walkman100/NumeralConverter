@@ -21,26 +21,50 @@ Public Class NumeralConverter
             number = number - 1000
             Console.Write("M")
         Loop
+            Do Until (number - 900) < 0
+                number = number - 900
+                Console.Write("CM")
+            Loop
         Do Until (number - 500) < 0
             number = number - 500
             Console.Write("D")
         Loop
+            Do Until (number - 400) < 0
+                number = number - 400
+                Console.Write("CD")
+            Loop
         Do Until (number - 100) < 0
             number = number - 100
             Console.Write("C")
         Loop
+            Do Until (number - 90) < 0
+                number = number - 90
+                Console.Write("XC")
+            Loop
         Do Until (number - 50) < 0
             number = number - 50
             Console.Write("L")
         Loop
+            Do Until (number - 40) < 0
+                number = number - 40
+                Console.Write("XL")
+            Loop
         Do Until (number - 10) < 0
             number = number - 10
             Console.Write("X")
         Loop
+            Do Until (number - 9) < 0
+                number = number - 9
+                Console.Write("IX")
+            Loop
         Do Until (number - 5) < 0
             number = number - 5
             Console.Write("V")
         Loop
+            Do Until (number - 4) < 0
+                number = number - 4
+                Console.Write("IV")
+            Loop
         Do Until (number - 1) < 0
             number = number - 1
             Console.Write("I")
