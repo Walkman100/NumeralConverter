@@ -17,11 +17,34 @@ Public Class NumeralConverter
     End Sub
 
     Shared Sub OutputRomanNumeral(number As Integer)
-        If (number - 1000) > 0 Then
+        Do Until (number - 1000) < 0
             number = number - 1000
             Console.Write("M")
-        End If
-
+        Loop
+        Do Until (number - 500) < 0
+            number = number - 500
+            Console.Write("D")
+        Loop
+        Do Until (number - 100) < 0
+            number = number - 100
+            Console.Write("C")
+        Loop
+        Do Until (number - 50) < 0
+            number = number - 50
+            Console.Write("L")
+        Loop
+        Do Until (number - 10) < 0
+            number = number - 10
+            Console.Write("X")
+        Loop
+        Do Until (number - 5) < 0
+            number = number - 5
+            Console.Write("V")
+        Loop
+        Do Until (number - 1) < 0
+            number = number - 1
+            Console.Write("I")
+        Loop
         Console.Writeline()
     End Sub
 End Class
