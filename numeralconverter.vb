@@ -3,17 +3,29 @@ Public Class NumeralConverter
 
     Public Shared Sub Main(args As String())
         If args.Length = 0 Then
-            Console.Write("Enter Arabic number: ")
-            tmpString = Console.Readline()
+            Console.Write("Input Arabic or Roman number? (a/r) ")
+            tmpString = Console.ReadKey().Key.ToString
+            Console.Writeline()
+            If tmpString = "A"
+                Console.Write("Enter Arabic number: ")
+                tmpString = Console.Readline()
+                If IsNumeric(tmpString) Then
+                    OutputRomanNumeral(tmpString)
+                Else
+                    Console.Writeline(tmpString & " is not an Arabic number!")
+                End If
+            ElseIf tmpString = "R"
+                Console.Write("Enter Roman number: ")
+                tmpString = Console.Readline()
+                'OutputArabicNumber(tmpString)
+            Else
+                Console.Writeline("""" & tmpString & """ isn't 'a' or 'r'!")
+            End If
         Else
             tmpString = args(0)
         End If
         
-        If IsNumeric(tmpString) Then
-            OutputRomanNumeral(tmpString)
-        Else
-            Console.Writeline(tmpString & " is not an Arabic number!")
-        End If
+
     End Sub
 
     Shared Sub OutputRomanNumeral(number As Integer)
