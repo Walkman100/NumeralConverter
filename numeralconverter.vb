@@ -9,11 +9,7 @@ Public Class NumeralConverter
             If tmpString = "A"
                 Console.Write("Enter Arabic number: ")
                 tmpString = Console.Readline()
-                If IsNumeric(tmpString) Then
-                    OutputRomanNumeral(tmpString)
-                Else
-                    Console.Writeline("""" & tmpString & """ is not an Arabic number!")
-                End If
+                CheckAndOutputRomanNumeral(tmpString)
             ElseIf tmpString = "R"
                 Console.Write("Enter Roman number: ")
                 tmpString = Console.Readline()
@@ -25,19 +21,27 @@ Public Class NumeralConverter
             Select case args(0)
                 Case "-h"
                     Console.Writeline("NumeralConverter - github.com/Walkman100/NumeralConverter")
-                    Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe [-h|-r (roman number)|-a (arabic number)]")
+                    WriteUsage()
                 Case "-a"
-                    If IsNumeric(args(1)) Then
-                        OutputRomanNumeral(args(1))
-                    Else
-                        Console.Writeline("""" & args(1) & """ is not an Arabic number!")
-                    End If
+                    If args.length > 1 Then CheckAndOutputRomanNumeral(args(1)) Else WriteUsage()
                 Case "-r"
-                    'OutputArabicNumber(args(1))
+                    If args.length > 1 Then OutputArabicNumber(args(1)) Else WriteUsage()
                 Case Else
                     Console.Writeline("Unrecognised flag """ & args(0) & """!")
-                    Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe [-h|-r (roman number)|-a (arabic number)]")
+                    WriteUsage()
             End Select
+        End If
+    End Sub
+
+    Shared Sub WriteUsage()
+        Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe [-h|-r (roman number)|-a (arabic number)]")
+    End Sub
+
+    Shared Sub CheckAndOutputRomanNumeral(input as String)
+        If IsNumeric(input) Then
+            OutputRomanNumeral(input)
+        Else
+            Console.Writeline("""" & input & """ is not an Arabic number!")
         End If
     End Sub
 
@@ -95,6 +99,10 @@ Public Class NumeralConverter
             Console.Write("I")
         Loop
         Console.Writeline()
+    End Sub
+
+    Shared Sub OutputArabicNumber(number As String)
+        
     End Sub
 End Class
 
