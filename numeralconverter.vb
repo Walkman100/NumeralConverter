@@ -12,7 +12,7 @@ Public Class NumeralConverter
                 If IsNumeric(tmpString) Then
                     OutputRomanNumeral(tmpString)
                 Else
-                    Console.Writeline(tmpString & " is not an Arabic number!")
+                    Console.Writeline("""" & tmpString & """ is not an Arabic number!")
                 End If
             ElseIf tmpString = "R"
                 Console.Write("Enter Roman number: ")
@@ -22,10 +22,23 @@ Public Class NumeralConverter
                 Console.Writeline("""" & tmpString & """ isn't 'a' or 'r'!")
             End If
         Else
-            tmpString = args(0)
+            Select case args(0)
+                Case "-h"
+                    Console.Writeline("NumeralConverter - github.com/Walkman100/NumeralConverter")
+                    Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe [-h|-r (roman number)|-a (arabic number)]")
+                Case "-a"
+                    If IsNumeric(args(1)) Then
+                        OutputRomanNumeral(args(1))
+                    Else
+                        Console.Writeline("""" & args(1) & """ is not an Arabic number!")
+                    End If
+                Case "-r"
+                    'OutputArabicNumber(args(1))
+                Case Else
+                    Console.Writeline("Unrecognised flag """ & args(0) & """!")
+                    Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe [-h|-r (roman number)|-a (arabic number)]")
+            End Select
         End If
-        
-
     End Sub
 
     Shared Sub OutputRomanNumeral(number As Integer)
