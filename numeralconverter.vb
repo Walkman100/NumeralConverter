@@ -13,7 +13,7 @@ Public Class NumeralConverter
             ElseIf tmpString = "R"
                 Console.Write("Enter Roman number: ")
                 tmpString = Console.Readline()
-                'OutputArabicNumber(tmpString)
+                OutputArabicNumber(tmpString)
             Else
                 Console.Writeline("""" & tmpString & """ isn't 'a' or 'r'!")
             End If
@@ -101,8 +101,32 @@ Public Class NumeralConverter
         Console.Writeline()
     End Sub
 
-    Shared Sub OutputArabicNumber(number As String)
-        
+    Shared Sub OutputArabicNumber(RomanNumber As String)
+        RomanNumber = RomanNumber.ToUpper
+        Dim i As Long
+        For i = 0 to RomanNumber.Length - 1
+            Select Case RomanNumber(i)
+                Case "I" ' below basically does RomanNumber.Char(i) = "1"
+                    RomanNumber = RomanNumber.Remove(i) & "1" & RomanNumber.Substring(i + 1)
+                Case "V"
+                    RomanNumber = RomanNumber.Remove(i) & "2" & RomanNumber.Substring(i + 1)
+                Case "X"
+                    RomanNumber = RomanNumber.Remove(i) & "3" & RomanNumber.Substring(i + 1)
+                Case "L"
+                    RomanNumber = RomanNumber.Remove(i) & "4" & RomanNumber.Substring(i + 1)
+                Case "C"
+                    RomanNumber = RomanNumber.Remove(i) & "5" & RomanNumber.Substring(i + 1)
+                Case "D"
+                    RomanNumber = RomanNumber.Remove(i) & "6" & RomanNumber.Substring(i + 1)
+                Case "M"
+                    RomanNumber = RomanNumber.Remove(i) & "7" & RomanNumber.Substring(i + 1)
+                Case Else
+                    Console.Writeline("""" & RomanNumber(i) & """ is not a valid Roman Numeral character!")
+                    End
+            End Select
+        Next
+        ' Now we have the roman number in arabic numbers (so we can use < and >), now we just add it all
+        Console.Writeline(RomanNumber)
     End Sub
 End Class
 
