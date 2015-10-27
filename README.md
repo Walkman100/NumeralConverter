@@ -8,9 +8,12 @@ You can download the [NumeralConverter.bat](https://github.com/Walkman100/Numera
 To use from the command prompt, from the program folder:
 ```sh
 > numeralconverter -h
-Usage: numeralconverter.exe [-h|-r (roman number)|-a (arabic number)]
+Usage: numeralconverter.exe [-h|-r [roman number]|-a [arabic number]]
 > numeralconverter -r CMXCIX
 999
+> numeralconverter -a
+Enter Arabic number: 543
+DXLIII
 > numeralconverter -a 543
 DXLIII
 > numeralconverter
@@ -25,9 +28,12 @@ Contents of `output.txt` will be `DXLIII`.
 See the [MonoTests](https://github.com/Walkman100/VBNCW/tree/master/MonoTests) folder in `VBNCW` to make sure you have `mono` and `vbnc` up and running, then from the program folder:
 ```sh
 > mono numeralconverter.exe -h
-Usage: numeralconverter.exe [-h|-r (roman number)|-a (arabic number)]
+Usage: numeralconverter.exe [-h|-r [roman number]|-a [arabic number]]
 > mono numeralconverter.exe -r CMXCIX
 999
+> mono numeralconverter.exe -a
+Enter Arabic number: 543
+DXLIII
 > mono numeralconverter.exe -a 543
 DXLIII
 > mono numeralconverter.exe

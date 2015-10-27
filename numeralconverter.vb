@@ -21,9 +21,15 @@ Public Class NumeralConverter
                     Console.Writeline("NumeralConverter - github.com/Walkman100/NumeralConverter")
                     WriteUsage()
                 Case "-a"
-                    If args.length > 1 Then CheckAndOutputRomanNumeral(args(1)) Else WriteUsage()
+                    If args.length > 1 Then : CheckAndOutputRomanNumeral(args(1))
+                    Else : Console.Write("Enter Arabic number: ")
+                           CheckAndOutputRomanNumeral(Console.Readline())
+                    End If
                 Case "-r"
-                    If args.length > 1 Then OutputArabicNumber(args(1)) Else WriteUsage()
+                    If args.length > 1 Then : OutputArabicNumber(args(1))
+                    Else : Console.Write("Enter Roman number: ")
+                        OutputArabicNumber(Console.Readline())
+                    End If
                 Case Else
                     Console.Writeline("Unrecognised flag """ & args(0) & """!")
                     WriteUsage()
@@ -32,7 +38,7 @@ Public Class NumeralConverter
     End Sub
 
     Shared Sub WriteUsage()
-        Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe [-h|-r (roman number)|-a (arabic number)]")
+        Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe [-h|-r [roman number]|-a [arabic number]]")
     End Sub
 
     Shared Sub CheckAndOutputRomanNumeral(input as String)
