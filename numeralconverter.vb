@@ -146,8 +146,23 @@ Public Class NumeralConverter
                     Case "7"
                         ArabicNumber += 1000
                 End Select
-            Else
-                
+            ElseIf i < RomanNumber.Length - 1
+                Select Case RomanNumber(i)
+                    Case "1"
+                        ArabicNumber -= 1
+                    Case "2"
+                        ArabicNumber -= 5
+                    Case "3"
+                        ArabicNumber -= 10
+                    Case "4"
+                        ArabicNumber -= 50
+                    Case "5"
+                        ArabicNumber -= 100
+                    Case "6"
+                        ArabicNumber -= 500
+                    Case "7" ' logic says this can't be possible, but no real reason to leave it out...
+                        ArabicNumber -= 1000
+                End Select
             End If
         Next
         Console.Writeline(ArabicNumber)
