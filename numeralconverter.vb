@@ -37,13 +37,17 @@ Public Class NumeralConverter
 
     Shared Sub CheckAndOutputRomanNumeral(input as String)
         If IsNumeric(input) Then
-            OutputRomanNumeral(input)
+            If input.Length < 20 Then
+                OutputRomanNumeral(input)
+            Else
+                Console.Writeline("""" & input & """ is " & (input.Length - 19) & " digit(s) too long! Maximum size for UInt64 is 19 digits")
+            End If
         Else
             Console.Writeline("""" & input & """ is not an Arabic number!")
         End If
     End Sub
 
-    Shared Sub OutputRomanNumeral(number As Integer)
+    Shared Sub OutputRomanNumeral(number As ULong)
         Do Until (number - 1000) < 0
             number = number - 1000
             Console.Write("M")
