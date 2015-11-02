@@ -62,10 +62,17 @@ Public Class NumeralConverter
     End Sub
 
     Shared Sub OutputRomanNumeral(number As ULong)
-        Do Until number < 1000
-            number = number - 1000
-            Console.Write("M")
-        Loop
+        If number > 1000
+            Dim i As Long
+            For i = 1 to number \ 1000
+                Console.Write("M")
+            Next
+            number = number - (number \ 1000) * 1000
+        End If
+REM        Do Until number < 1000
+REM            number = number - 1000
+REM            Console.Write("M")
+REM        Loop
             Do Until number < 900
                 number = number - 900
                 Console.Write("CM")
