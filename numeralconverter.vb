@@ -67,58 +67,58 @@ Public Class NumeralConverter
             For i = 1 to number \ 1000
                 Console.Write("M")
             Next
-            number = number - (number \ 1000) * 1000
+            number -= (number \ 1000) * 1000
         End If
 REM        Do Until number < 1000
-REM            number = number - 1000
+REM            number -= 1000
 REM            Console.Write("M")
 REM        Loop
             Do Until number < 900
-                number = number - 900
+                number -= 900
                 Console.Write("CM")
             Loop
         Do Until number < 500
-            number = number - 500
+            number -= 500
             Console.Write("D")
         Loop
             Do Until number < 400
-                number = number - 400
+                number -= 400
                 Console.Write("CD")
             Loop
         Do Until number < 100
-            number = number - 100
+            number -= 100
             Console.Write("C")
         Loop
             Do Until number < 90
-                number = number - 90
+                number -= 90
                 Console.Write("XC")
             Loop
         Do Until number < 50
-            number = number - 50
+            number -= 50
             Console.Write("L")
         Loop
             Do Until number < 40
-                number = number - 40
+                number -= 40
                 Console.Write("XL")
             Loop
         Do Until number < 10
-            number = number - 10
+            number -= 10
             Console.Write("X")
         Loop
             Do Until number < 9
-                number = number - 9
+                number -= 9
                 Console.Write("IX")
             Loop
         Do Until number < 5
-            number = number - 5
+            number -= 5
             Console.Write("V")
         Loop
             Do Until number < 4
-                number = number - 4
+                number -= 4
                 Console.Write("IV")
             Loop
         Do Until number < 1
-            number = number - 1
+            number -= 1
             Console.Write("I")
         Loop
         Console.Writeline()
