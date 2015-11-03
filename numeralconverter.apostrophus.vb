@@ -62,13 +62,30 @@ Public Class NumeralConverter
     End Sub
 
     Shared Sub OutputRomanNumeral(number As ULong)
-        If number > 1000
+    ' See https://en.wikipedia.org/wiki/Roman_numerals#Apostrophus
+        If number > 100000 Then
             Dim i As Long
-            For i = 1 to number \ 1000
-                Console.Write("M")
+            For i = 1 to number \ 100000
+                Console.Write("ↈ")
             Next
-            number -= (number \ 1000) * 1000
+            number -= (number \ 100000) * 100000
         End If
+        Do Until number < 50000
+            number -= 50000
+            Console.Write("ↇ")
+        Loop
+        Do Until number < 10000
+            number -= 10000
+            Console.Write("ↂ")
+        Loop
+        Do Until number < 5000
+            number -= 5000
+            Console.Write("ↁ")
+        Loop
+        Do Until number < 1000
+            number -= 1000
+            Console.Write("ↀ")
+        Loop
             Do Until number < 900
                 number -= 900
                 Console.Write("CM")
