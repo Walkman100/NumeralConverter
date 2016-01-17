@@ -1,6 +1,20 @@
 # NumeralConverter
 Convert between [Arabic Numerals](https://en.wikipedia.org/wiki/Arabic_numerals) and [Roman Numerals](https://en.wikipedia.org/wiki/Roman_numerals)
 
+## Compiling
+To compile and test the latest source code:
+- open a command prompt or terminal in the parent folder of where you want to download NumeralConverter to
+```sh
+git clone https://github.com/Walkman100/NumeralConverter.git
+cd NumeralConverter
+# on windows:
+compile
+numeralconverter.exe -h
+# on linux:
+./compile.sh
+mono numeralconverter.exe -h
+```
+
 ## Program Usage
 ### Windows
 You can download the [NumeralConverter.bat](https://github.com/Walkman100/NumeralConverter/blob/master/numeralconverter.bat) file and put it in the same folder as the executable to use the program without opening a command prompt first.
