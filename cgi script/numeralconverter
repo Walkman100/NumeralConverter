@@ -1,0 +1,37 @@
+#!/bin/sh
+echo "Content-type: text/html\n\n"
+
+# Save the old internal field separator.
+OIFS="$IFS"
+# Set the field separator to & and parse the QUERY_STRING at the ampersand.
+IFS="${IFS}&"
+set $QUERY_STRING
+Args="$*"
+IFS="$OIFS"
+
+# Next parse the individual "name=value" tokens.
+for i in $Args ;do
+    # Set the field separator to =
+    IFS="${OIFS}="
+    set $i
+    IFS="${OIFS}"
+    case $1 in
+        a) operation="-a $2"
+               ;;
+        r) operation="-r $2"
+               ;;
+        h) echo "NumeralConverter - github.com/Walkman100/NumeralConverter<br />"
+           echo "Usage: numeralconverter?&lt;h|r=&lt;roman number&gt;|a=&lt;arabic number&gt;&gt;"
+               ;;
+        *) echo "Unrecognised flag \"$1\"!<br />"
+           echo "Usage: numeralconverter?&lt;h|r=&lt;roman number&gt;|a=&lt;arabic number&gt;&gt;"
+               ;;
+    esac
+done
+
+if [ -n "$operation" ]; then
+    numeralconverter $operation > /tmp/nca
+    cat /tmp/nca
+    rm -f /tmp/nca
+fi
+
