@@ -9,13 +9,12 @@ git clone https://github.com/Walkman100/NumeralConverter.git
 cd NumeralConverter
 # on windows:
 compile
-numeralconverter.exe -h
+numeralconverter -h
 # on linux:
 ./compile.sh
 mono numeralconverter.exe -h
 ```
 
-- On Windows, remove the `numeralconverter.bat` file to just use `numeralconverter -h` at the command line.
 - On Linux, either:
   - rename the file to `numeralconverter` to be able to just do `mono numeralconverter -h`
   - create a `numeralconverter` script in `/usr/bin` (or `/bin`) with the contents of:
@@ -28,7 +27,7 @@ then `chmod 777` it and you should be able to just do `numeralconverter -h` from
 
 ## Program Usage
 ### Windows
-You can download the [NumeralConverter.bat](https://github.com/Walkman100/NumeralConverter/blob/master/numeralconverter.bat) file and put it in the same folder as the executable to use the program without opening a command prompt first.
+You can download the [NumeralConverterWindows.bat](https://github.com/Walkman100/NumeralConverter/blob/master/NumeralConverterWindows.bat) file and put it in the same folder as the executable to use the program without opening a command prompt first.
 
 To use from the command prompt, from the program folder:
 ```sh
