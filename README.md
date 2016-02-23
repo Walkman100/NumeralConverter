@@ -27,7 +27,7 @@ then `chmod 777` it and you should be able to just do `numeralconverter -h` from
 
 ## Program Usage
 ### Windows
-You can download the [NumeralConverterWindows.bat](https://github.com/Walkman100/NumeralConverter/blob/master/NumeralConverterWindows.bat) file and put it in the same folder as the executable to use the program without opening a command prompt first.
+You can download the [NumeralConverterWindows.bat](https://github.com/Walkman100/NumeralConverter/blob/master/VB/NumeralConverterWindows.bat) file and put it in the same folder as the executable to use the program without opening a command prompt first.
 
 To use from the command prompt, from the program folder:
 ```sh

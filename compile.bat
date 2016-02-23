@@ -1,1 +1,1 @@
-"%WinDir%\Microsoft.NET\Framework\v4.0.30319\vbc.exe" "-out:numeralconverter.exe" -nologo -utf8output -quiet -rootnamespace:numeralconverter -target:exe /win32icon:"doc-convert-arabic-to-roman-numbers2.ico" "numeralconverter.vb" "AssemblyInfo.vb"
+"%WinDir%\Microsoft.NET\Framework\v4.0.30319\vbc.exe" "-out:%~dp0numeralconverter.exe" -nologo -utf8output -quiet -rootnamespace:numeralconverter -target:exe /win32icon:"%~dp0VB\doc-convert-arabic-to-roman-numbers2.ico" "%~dp0VB\numeralconverter.vb" "%~dp0VB\AssemblyInfo.vb"
