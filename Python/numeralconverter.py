@@ -126,20 +126,20 @@ def outputRomanNumeral(number):
 def outputArabicNumber(RomanNumber):
     RomanNumber = RomanNumber.upper()
     for i in range(0, len(RomanNumber)):
-        if RomanNumber[i] == "I":
-            RomanNumber[i] = 1
+        if RomanNumber[i] == "I": # https://stackoverflow.com/a/1228327/2999220
+            RomanNumber = RomanNumber[:i] + '1' + RomanNumber[i + 1:]
         elif RomanNumber[i] == "V":
-            RomanNumber[i] = 2
+            RomanNumber = RomanNumber[:i] + '2' + RomanNumber[i + 1:]
         elif RomanNumber[i] == "X":
-            RomanNumber[i] = 3
+            RomanNumber = RomanNumber[:i] + '3' + RomanNumber[i + 1:]
         elif RomanNumber[i] == "L":
-            RomanNumber[i] = 4
+            RomanNumber = RomanNumber[:i] + '4' + RomanNumber[i + 1:]
         elif RomanNumber[i] == "C":
-            RomanNumber[i] = 5
+            RomanNumber = RomanNumber[:i] + '5' + RomanNumber[i + 1:]
         elif RomanNumber[i] == "D":
-            RomanNumber[i] = 6
+            RomanNumber = RomanNumber[:i] + '6' + RomanNumber[i + 1:]
         elif RomanNumber[i] == "M":
-            RomanNumber[i] = 7
+            RomanNumber = RomanNumber[:i] + '7' + RomanNumber[i + 1:]
         else:
             print("\"" + RomanNumber[i] + "\" is not a valid Roman Numeral character!")
             exit()
