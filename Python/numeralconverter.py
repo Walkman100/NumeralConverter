@@ -52,18 +52,18 @@ def main(args):
             print("NumeralConverter - github.com/Walkman100/NumeralConverter")
             printUsage()
         elif args[0] == "-a":
-            if len(args) > 1: checkAndOutputRomanNumeral(args(1))
+            if len(args) > 1: checkAndOutputRomanNumeral(args[1])
             else: checkAndOutputRomanNumeral(raw_input("Enter Arabic number: "))
         elif args[0] == "-r":
-            if len(args) > 1: outputArabicNumber(args(1))
+            if len(args) > 1: outputArabicNumber(args[1])
             else: outputArabicNumber(raw_input("Enter Roman number: "))
         else:
-            print("Unrecognised flag \"" + args(0) + "\"!")
+            print("Unrecognised flag \"" + args[0] + "\"!")
             printUsage()
 
 def printUsage():
     flags = " [-h|-r [roman number]|-a [arabic number]]"
-    print("python " + sys.argv(0) + flags)
+    print("python " + sys.argv[0] + flags)
 
 def checkAndOutputRomanNumeral(input):
     if is_number(input):
