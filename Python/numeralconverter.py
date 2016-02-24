@@ -56,48 +56,105 @@ def outputRomanNumeral(number):
         number = number - 900
         print("CM")
     
-    while number > :
-        number = number - 
+    while number > 500:
+        number = number - 500
         print("D")
-    while number > :
-        number = number - 
+    while number > 400:
+        number = number - 400
         print("CD")
     
-    while number > :
-        number = number - 
+    while number > 100:
+        number = number - 100
         print("C")
-    while number > :
-        number = number - 
+    while number > 90:
+        number = number - 90
         print("XC")
     
-    while number > :
-        number = number - 
+    while number > 50:
+        number = number - 50
         print("L")
-    while number > :
-        number = number - 
+    while number > 40:
+        number = number - 40
         print("XL")
     
-    while number > :
-        number = number - 
+    while number > 10:
+        number = number - 10
         print("X")
-    while number > :
-        number = number - 
+    while number > 9:
+        number = number - 9
         print("IX")
     
-    while number > :
-        number = number - 
+    while number > 5:
+        number = number - 5
         print("V")
-    while number > :
-        number = number - 
+    while number > 4:
+        number = number - 4
         print("IV")
     
-    while number > :
-        number = number - 
+    while number > 1:
+        number = number - 1
         print("I")
     print("\n")
 
 def outputArabicNumber(RomanNumber):
     RomanNumber = RomanNumber.upper
-    
+    for i=0 to len(RomanNumber):
+        select case RomanNumber(i):
+            case "I":
+                RomanNumber(i) = 1
+            case "V":
+                RomanNumber(i) = 2
+            case "X":
+                RomanNumber(i) = 3
+            case "L":
+                RomanNumber(i) = 4
+            case "C":
+                RomanNumber(i) = 5
+            case "D":
+                RomanNumber(i) = 6
+            case "M":
+                RomanNumber(i) = 7
+            case else:
+                print("\"" + RomanNumber(i) + "\" is not a valid Roman Numeral character!")
+                exit()
+    next
+    # Now we have the roman number in arabic numbers (so we can use < and >), we just add it all
+    ArabicNumber = 0
+    RomanNumber = RomanNumber + "0" # Because loops, length calculation and next letter calculation
+    for i=0 to len(RomanNumber) - 1:
+        if i < len(RomanNumber) - 1 andalso RomanNumber(i) >= RomanNumber(i + 1):
+            select case RomanNumber(i):
+                case "1":
+                    ArabicNumber = ArabicNumber + 1
+                case "2":
+                    ArabicNumber = ArabicNumber + 5
+                case "3":
+                    ArabicNumber = ArabicNumber + 10
+                case "4":
+                    ArabicNumber = ArabicNumber + 50
+                case "5":
+                    ArabicNumber = ArabicNumber + 100
+                case "6":
+                    ArabicNumber = ArabicNumber + 500
+                case "7":
+                    ArabicNumber = ArabicNumber + 1000
+        elif i < len(RomanNumber) - 1:
+            select case RomanNumber(i)
+                case "1":
+                    ArabicNumber = ArabicNumber - 1
+                case "2":
+                    ArabicNumber = ArabicNumber - 5
+                case "3":
+                    ArabicNumber = ArabicNumber - 10
+                case "4":
+                    ArabicNumber = ArabicNumber - 50
+                case "5":
+                    ArabicNumber = ArabicNumber - 100
+                case "6":
+                    ArabicNumber = ArabicNumber - 500
+                case "7": # logic says this can't be possible, but no real reason to leave it out...
+                    ArabicNumber = ArabicNumber - 1000
+    next
+    print(ArabicNumber)
 
 main(sys.argv[1:])
