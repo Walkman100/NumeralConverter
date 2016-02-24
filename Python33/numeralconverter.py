@@ -11,40 +11,16 @@ def is_number(s):
 def printchar(char):
     sys.stdout.write(char)
     sys.stdout.flush()
-# https://stackoverflow.com/a/21659588/2999220
-def _find_getch():
-    try:
-        import termios
-    except ImportError:
-        # Non-POSIX. Return msvcrt's (Windows') getch.
-        import msvcrt
-        return msvcrt.getch
-    # POSIX system. Create and return a getch that manipulates the tty.
-    import sys, tty
-    def _getch():
-        fd = sys.stdin.fileno()
-        old_settings = termios.tcgetattr(fd)
-        try:
-            tty.setraw(fd)
-            ch = sys.stdin.read(1)
-        finally:
-            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-        return ch
-    return _getch
-getch = _find_getch()
 
 tmpString = ""
 def main(args):
     if len(args) == 0:
-        printchar("Input Arabic or Roman number? (a/r): ")
-        tmpString = getch()
-        print(tmpString)
-        
+        tmpString = input("Input Arabic or Roman number? (a/r): ")
         tmpString = tmpString.upper()
         if tmpString == "A":
-            checkAndOutputRomanNumeral(raw_input("Enter Arabic number: "))
+            checkAndOutputRomanNumeral(input("Enter Arabic number: "))
         elif tmpString == "R":
-            outputArabicNumber(raw_input("Enter Roman number: "))
+            outputArabicNumber(input("Enter Roman number: "))
         else:
             print("\"" + tmpString + "\" isn't 'a' or 'r'!")
     else:
@@ -53,10 +29,10 @@ def main(args):
             printUsage()
         elif args[0] == "-a":
             if len(args) > 1: checkAndOutputRomanNumeral(args[1])
-            else: checkAndOutputRomanNumeral(raw_input("Enter Arabic number: "))
+            else: checkAndOutputRomanNumeral(input("Enter Arabic number: "))
         elif args[0] == "-r":
             if len(args) > 1: outputArabicNumber(args[1])
-            else: outputArabicNumber(raw_input("Enter Roman number: "))
+            else: outputArabicNumber(input("Enter Roman number: "))
         else:
             print("Unrecognised flag \"" + args[0] + "\"!")
             printUsage()
