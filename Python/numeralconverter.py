@@ -38,9 +38,9 @@ def printUsage():
     print("python " + sys.argv(0) + flags)
 
 def checkAndOutputRomanNumeral(input):
-    if is_integer(input):
+    if is_number(input):
         if len(input) < 19:
-            outputRomanNumeral(input)
+            outputRomanNumeral(int(input))
         else:
             print("\"" + input + "\" is " + (len(input) - 18 + " digit(s) too long! Maximum size for \"//\" operations is 18 digits"))
     else:
@@ -96,22 +96,22 @@ def outputRomanNumeral(number):
     print("\n")
 
 def outputArabicNumber(RomanNumber):
-    RomanNumber = RomanNumber.upper
-    for i in range(0, len(RomanNumber +1)):
-        if RomanNumber(i) == "I":
-            RomanNumber(i) = 1
-        elif RomanNumber(i) == "V":
-            RomanNumber(i) = 2
-        elif RomanNumber(i) == "X":
-            RomanNumber(i) = 3
-        elif RomanNumber(i) == "L":
-            RomanNumber(i) = 4
-        elif RomanNumber(i) == "C":
-            RomanNumber(i) = 5
-        elif RomanNumber(i) == "D":
-            RomanNumber(i) = 6
-        elif RomanNumber(i) == "M":
-            RomanNumber(i) = 7
+    RomanNumber = RomanNumber.upper()
+    for i in range(0, len(RomanNumber) +1):
+        if RomanNumber[i] == "I":
+            RomanNumber[i] = 1
+        elif RomanNumber[i] == "V":
+            RomanNumber[i] = 2
+        elif RomanNumber[i] == "X":
+            RomanNumber[i] = 3
+        elif RomanNumber[i] == "L":
+            RomanNumber[i] = 4
+        elif RomanNumber[i] == "C":
+            RomanNumber[i] = 5
+        elif RomanNumber[i] == "D":
+            RomanNumber[i] = 6
+        elif RomanNumber[i] == "M":
+            RomanNumber[i] = 7
         else:
             print("\"" + RomanNumber(i) + "\" is not a valid Roman Numeral character!")
             exit()
@@ -120,34 +120,34 @@ def outputArabicNumber(RomanNumber):
     RomanNumber = RomanNumber + "0" # Because loops, length calculation and next letter calculation
     for i in range(0, len(RomanNumber)):
         if i < len(RomanNumber) - 1 and RomanNumber(i) >= RomanNumber(i + 1):
-            if RomanNumber(i) == "1":
+            if RomanNumber[i] == "1":
                 ArabicNumber = ArabicNumber + 1
-            elif RomanNumber(i) == "2":
+            elif RomanNumber[i] == "2":
                 ArabicNumber = ArabicNumber + 5
-            elif RomanNumber(i) == "3":
+            elif RomanNumber[i] == "3":
                 ArabicNumber = ArabicNumber + 10
-            elif RomanNumber(i) == "4":
+            elif RomanNumber[i] == "4":
                 ArabicNumber = ArabicNumber + 50
-            elif RomanNumber(i) == "5":
+            elif RomanNumber[i] == "5":
                 ArabicNumber = ArabicNumber + 100
-            elif RomanNumber(i) == "6":
+            elif RomanNumber[i] == "6":
                 ArabicNumber = ArabicNumber + 500
-            elif RomanNumber(i) == "7":
+            elif RomanNumber[i] == "7":
                 ArabicNumber = ArabicNumber + 1000
         elif i < len(RomanNumber) - 1:
-            if RomanNumber(i) == "1":
+            if RomanNumber[i] == "1":
                 ArabicNumber = ArabicNumber - 1
-            elif RomanNumber(i) == "2":
+            elif RomanNumber[i] == "2":
                 ArabicNumber = ArabicNumber - 5
-            elif RomanNumber(i) == "3":
+            elif RomanNumber[i] == "3":
                 ArabicNumber = ArabicNumber - 10
-            elif RomanNumber(i) == "4":
+            elif RomanNumber[i] == "4":
                 ArabicNumber = ArabicNumber - 50
-            elif RomanNumber(i) == "5":
+            elif RomanNumber[i] == "5":
                 ArabicNumber = ArabicNumber - 100
-            elif RomanNumber(i) == "6":
+            elif RomanNumber[i] == "6":
                 ArabicNumber = ArabicNumber - 500
-            elif RomanNumber(i) == "7": # logic says this can't be possible, but no real reason to leave it out...
+            elif RomanNumber[i] == "7": # logic says this can't be possible, but no real reason to leave it out...
                 ArabicNumber = ArabicNumber - 1000
     print(ArabicNumber)
 
