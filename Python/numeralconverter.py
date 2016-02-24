@@ -7,7 +7,6 @@ def is_number(s):
         return True
     except ValueError:
         return False
-
 # https://stackoverflow.com/q/9246076/2999220
 def printchar(char):
     sys.stdout.write(char)
@@ -25,13 +24,13 @@ def main(args):
         else:
             print("\"" + tmpString + "\" isn't 'a' or 'r'!")
     else:
-        if args(0) == "-h":
+        if args[0] == "-h":
             print("NumeralConverter - github.com/Walkman100/NumeralConverter")
             printUsage()
-        elif args(0) == "-a":
+        elif args[0] == "-a":
             if len(args) > 1: checkAndOutputRomanNumeral(args(1))
             else: checkAndOutputRomanNumeral(raw_input("Enter Arabic number: "))
-        elif args(0) == "-r":
+        elif args[0] == "-r":
             if len(args) > 1: outputArabicNumber(args(1))
             else: outputArabicNumber(raw_input("Enter Roman number: "))
         else:
@@ -95,14 +94,14 @@ def outputRomanNumeral(number):
         number = number - 4
         printchar("IV")
     
-    while number > 1:
+    while number >= 1:
         number = number - 1
         printchar("I")
     printchar("\n")
 
 def outputArabicNumber(RomanNumber):
     RomanNumber = RomanNumber.upper()
-    for i in range(0, len(RomanNumber) +1):
+    for i in range(0, len(RomanNumber)):
         if RomanNumber[i] == "I":
             RomanNumber[i] = 1
         elif RomanNumber[i] == "V":
@@ -118,13 +117,13 @@ def outputArabicNumber(RomanNumber):
         elif RomanNumber[i] == "M":
             RomanNumber[i] = 7
         else:
-            print("\"" + RomanNumber(i) + "\" is not a valid Roman Numeral character!")
+            print("\"" + RomanNumber[i] + "\" is not a valid Roman Numeral character!")
             exit()
     # Now we have the roman number in arabic numbers (so we can use < and >), we just add it all
     ArabicNumber = 0
     RomanNumber = RomanNumber + "0" # Because loops, length calculation and next letter calculation
     for i in range(0, len(RomanNumber)):
-        if i < len(RomanNumber) - 1 and RomanNumber(i) >= RomanNumber(i + 1):
+        if i < len(RomanNumber) - 1 and RomanNumber[i] >= RomanNumber[i + 1]:
             if RomanNumber[i] == "1":
                 ArabicNumber = ArabicNumber + 1
             elif RomanNumber[i] == "2":
