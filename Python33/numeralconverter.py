@@ -102,20 +102,14 @@ def outputRomanNumeral(number):
 def outputArabicNumber(RomanNumber):
     RomanNumber = RomanNumber.upper()
     for i in range(0, len(RomanNumber)):
-        if RomanNumber[i] == "I": # https://stackoverflow.com/a/1228327/2999220
-            RomanNumber = RomanNumber[:i] + '1' + RomanNumber[i + 1:]
-        elif RomanNumber[i] == "V":
-            RomanNumber = RomanNumber[:i] + '2' + RomanNumber[i + 1:]
-        elif RomanNumber[i] == "X":
-            RomanNumber = RomanNumber[:i] + '3' + RomanNumber[i + 1:]
-        elif RomanNumber[i] == "L":
-            RomanNumber = RomanNumber[:i] + '4' + RomanNumber[i + 1:]
-        elif RomanNumber[i] == "C":
-            RomanNumber = RomanNumber[:i] + '5' + RomanNumber[i + 1:]
-        elif RomanNumber[i] == "D":
-            RomanNumber = RomanNumber[:i] + '6' + RomanNumber[i + 1:]
-        elif RomanNumber[i] == "M":
-            RomanNumber = RomanNumber[:i] + '7' + RomanNumber[i + 1:]
+        # https://stackoverflow.com/a/1228327/2999220
+        if RomanNumber[i] == "I":   RomanNumber = RomanNumber[:i] + '1' + RomanNumber[i + 1:]
+        elif RomanNumber[i] == "V": RomanNumber = RomanNumber[:i] + '2' + RomanNumber[i + 1:]
+        elif RomanNumber[i] == "X": RomanNumber = RomanNumber[:i] + '3' + RomanNumber[i + 1:]
+        elif RomanNumber[i] == "L": RomanNumber = RomanNumber[:i] + '4' + RomanNumber[i + 1:]
+        elif RomanNumber[i] == "C": RomanNumber = RomanNumber[:i] + '5' + RomanNumber[i + 1:]
+        elif RomanNumber[i] == "D": RomanNumber = RomanNumber[:i] + '6' + RomanNumber[i + 1:]
+        elif RomanNumber[i] == "M": RomanNumber = RomanNumber[:i] + '7' + RomanNumber[i + 1:]
         else:
             print("\"" + RomanNumber[i] + "\" is not a valid Roman Numeral character!")
             exit()
@@ -124,35 +118,21 @@ def outputArabicNumber(RomanNumber):
     RomanNumber = RomanNumber + "0" # Because loops, length calculation and next letter calculation
     for i in range(0, len(RomanNumber)):
         if i < len(RomanNumber) - 1 and RomanNumber[i] >= RomanNumber[i + 1]:
-            if RomanNumber[i] == "1":
-                ArabicNumber = ArabicNumber + 1
-            elif RomanNumber[i] == "2":
-                ArabicNumber = ArabicNumber + 5
-            elif RomanNumber[i] == "3":
-                ArabicNumber = ArabicNumber + 10
-            elif RomanNumber[i] == "4":
-                ArabicNumber = ArabicNumber + 50
-            elif RomanNumber[i] == "5":
-                ArabicNumber = ArabicNumber + 100
-            elif RomanNumber[i] == "6":
-                ArabicNumber = ArabicNumber + 500
-            elif RomanNumber[i] == "7":
-                ArabicNumber = ArabicNumber + 1000
+            if RomanNumber[i] == "1":   ArabicNumber = ArabicNumber + 1
+            elif RomanNumber[i] == "2": ArabicNumber = ArabicNumber + 5
+            elif RomanNumber[i] == "3": ArabicNumber = ArabicNumber + 10
+            elif RomanNumber[i] == "4": ArabicNumber = ArabicNumber + 50
+            elif RomanNumber[i] == "5": ArabicNumber = ArabicNumber + 100
+            elif RomanNumber[i] == "6": ArabicNumber = ArabicNumber + 500
+            elif RomanNumber[i] == "7": ArabicNumber = ArabicNumber + 1000
         elif i < len(RomanNumber) - 1:
-            if RomanNumber[i] == "1":
-                ArabicNumber = ArabicNumber - 1
-            elif RomanNumber[i] == "2":
-                ArabicNumber = ArabicNumber - 5
-            elif RomanNumber[i] == "3":
-                ArabicNumber = ArabicNumber - 10
-            elif RomanNumber[i] == "4":
-                ArabicNumber = ArabicNumber - 50
-            elif RomanNumber[i] == "5":
-                ArabicNumber = ArabicNumber - 100
-            elif RomanNumber[i] == "6":
-                ArabicNumber = ArabicNumber - 500
-            elif RomanNumber[i] == "7": # logic says this can't be possible, but no real reason to leave it out...
-                ArabicNumber = ArabicNumber - 1000
+            if RomanNumber[i] == "1":   ArabicNumber = ArabicNumber - 1
+            elif RomanNumber[i] == "2": ArabicNumber = ArabicNumber - 5
+            elif RomanNumber[i] == "3": ArabicNumber = ArabicNumber - 10
+            elif RomanNumber[i] == "4": ArabicNumber = ArabicNumber - 50
+            elif RomanNumber[i] == "5": ArabicNumber = ArabicNumber - 100
+            elif RomanNumber[i] == "6": ArabicNumber = ArabicNumber - 500
+            elif RomanNumber[i] == "7": ArabicNumber = ArabicNumber - 1000
     print(ArabicNumber)
 
 main(sys.argv[1:])
