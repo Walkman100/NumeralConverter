@@ -8,6 +8,11 @@ def is_number(s):
     except ValueError:
         return False
 
+# https://stackoverflow.com/q/9246076/2999220
+def printchar(char):
+    sys.stdout.write(char)
+    sys.stdout.flush()
+
 tmpString = ""
 def main(args):
     if len(args) == 0:
@@ -49,51 +54,51 @@ def checkAndOutputRomanNumeral(input):
 def outputRomanNumeral(number):
     if number > 1000:
         for i in range(1, (number // 1000) +1):
-            print("M")
+            printchar("M")
         number = number - (number // 1000) * 1000
     while number > 900:
         number = number - 900
-        print("CM")
+        printchar("CM")
     
     while number > 500:
         number = number - 500
-        print("D")
+        printchar("D")
     while number > 400:
         number = number - 400
-        print("CD")
+        printchar("CD")
     
     while number > 100:
         number = number - 100
-        print("C")
+        printchar("C")
     while number > 90:
         number = number - 90
-        print("XC")
+        printchar("XC")
     
     while number > 50:
         number = number - 50
-        print("L")
+        printchar("L")
     while number > 40:
         number = number - 40
-        print("XL")
+        printchar("XL")
     
     while number > 10:
         number = number - 10
-        print("X")
+        printchar("X")
     while number > 9:
         number = number - 9
-        print("IX")
+        printchar("IX")
     
     while number > 5:
         number = number - 5
-        print("V")
+        printchar("V")
     while number > 4:
         number = number - 4
-        print("IV")
+        printchar("IV")
     
     while number > 1:
         number = number - 1
-        print("I")
-    print("\n")
+        printchar("I")
+    printchar("\n")
 
 def outputArabicNumber(RomanNumber):
     RomanNumber = RomanNumber.upper()
