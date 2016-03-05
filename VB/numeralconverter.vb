@@ -144,7 +144,7 @@ Public Class NumeralConverter
                     End
             End Select
         Next
-        ' Now we have the roman number in arabic numbers (so we can use < and >), now we just add it all
+        ' Now we have the roman number in arabic numbers (so we can use < and >), we just add it all
         Dim ArabicNumber as Long = 0
         RomanNumber = RomanNumber & "0" ' Because loops, length calculation and next letter calculation
         For i = 0 to RomanNumber.Length - 1
