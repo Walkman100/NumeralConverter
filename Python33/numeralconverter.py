@@ -50,7 +50,7 @@ def checkAndOutputRomanNumeral(input):
         if len(input) < 19:
             outputRomanNumeral(int(input))
         else:
-            print("\"" + input + "\" is " + (len(input) - 18 + " digit(s) too long! Maximum size for \"//\" operations is 18 digits"))
+            print("\"" + input + "\" is " + str(len(input) - 18) + " digit(s) too long! Maximum size for \"//\" operations is 18 digits")
     else:
         print("\"" + input + "\" is not an Arabic number!")
 
