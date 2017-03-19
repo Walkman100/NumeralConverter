@@ -79,46 +79,46 @@ def checkAndOutputRomanNumeral(input):
         print("\"" + input + "\" is not an Arabic number!")
 
 def outputRomanNumeral(number):
-    if number > 1000:
+    if number >= 1000:
         for i in range(1, (number // 1000) +1):
             printchar("M")
         number -= (number // 1000) * 1000
-    while number > 900:
+    while number >= 900:
         number -= 900
         printchar("CM")
     
-    while number > 500:
+    while number >= 500:
         number -= 500
         printchar("D")
-    while number > 400:
+    while number >= 400:
         number -= 400
         printchar("CD")
     
-    while number > 100:
+    while number >= 100:
         number -= 100
         printchar("C")
-    while number > 90:
+    while number >= 90:
         number -= 90
         printchar("XC")
     
-    while number > 50:
+    while number >= 50:
         number -= 50
         printchar("L")
-    while number > 40:
+    while number >= 40:
         number -= 40
         printchar("XL")
     
-    while number > 10:
+    while number >= 10:
         number -= 10
         printchar("X")
-    while number > 9:
+    while number >= 9:
         number -= 9
         printchar("IX")
     
-    while number > 5:
+    while number >= 5:
         number -= 5
         printchar("V")
-    while number > 4:
+    while number >= 4:
         number -= 4
         printchar("IV")
     
