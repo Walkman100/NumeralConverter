@@ -39,13 +39,14 @@ Module NumeralConverter
 
     Sub WriteUsage()
         Dim flags as String = " [-h|-r [roman number]|-a [arabic number]]"
+        Dim programPath As String = System.Reflection.Assembly.GetExecutingAssembly().CodeBase
         If My.Computer.Info.OSPlatform = "Unix" Then
-            Console.Writeline("Usage: mono " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & flags)
+            Console.Writeline("Usage: mono " & programPath.Substring(programPath.LastIndexOf("/") +1) & flags)
         ElseIf My.Computer.Info.OSPlatform = "Win32NT" Then
-            Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & flags)
+            Console.Writeline("Usage: " & programPath.Substring(programPath.LastIndexOf("/") +1) & flags)
         Else
             Console.Writeline("Unrecognised platform """ & My.Computer.Info.OSPlatform & """! Please report at https://github.com/Walkman100/NumeralConverter/issues/new")
-            Console.Writeline("Default usage info: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe " & flags)
+            Console.Writeline("Default usage info: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe" & flags)
         End If
     End Sub
 
