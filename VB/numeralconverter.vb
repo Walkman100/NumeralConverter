@@ -1,7 +1,7 @@
-Public Class NumeralConverter
-    Shared tmpString As String = ""
+Module NumeralConverter
+    Dim tmpString As String = ""
 
-    Public Shared Sub Main(args As String())
+    Sub Main(args As String())
         If args.Length = 0 Then
             Console.Write("Input Arabic or Roman number? (a/r): ")
             tmpString = Console.ReadKey().Key.ToString
@@ -37,7 +37,7 @@ Public Class NumeralConverter
         End If
     End Sub
 
-    Shared Sub WriteUsage()
+    Sub WriteUsage()
         Dim flags as String = " [-h|-r [roman number]|-a [arabic number]]"
         If My.Computer.Info.OSPlatform = "Unix" Then
             Console.Writeline("Usage: mono " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & flags)
@@ -49,7 +49,7 @@ Public Class NumeralConverter
         End If
     End Sub
 
-    Shared Sub CheckAndOutputRomanNumeral(input as String)
+    Sub CheckAndOutputRomanNumeral(input as String)
         If IsNumeric(input) Then
             If input.Length < 19 Then
                 OutputRomanNumeral(input)
@@ -61,7 +61,7 @@ Public Class NumeralConverter
         End If
     End Sub
 
-    Shared Sub OutputRomanNumeral(number As ULong)
+    Sub OutputRomanNumeral(number As ULong)
         If number > 1000
             Dim i As Long
             For i = 1 to number \ 1000
@@ -120,7 +120,7 @@ Public Class NumeralConverter
         Console.Writeline()
     End Sub
 
-    Shared Sub OutputArabicNumber(RomanNumber As String)
+    Sub OutputArabicNumber(RomanNumber As String)
         RomanNumber = RomanNumber.ToUpper
         Dim i As Long
         For i = 0 to RomanNumber.Length - 1
@@ -186,7 +186,7 @@ Public Class NumeralConverter
         Next
         Console.Writeline(ArabicNumber)
     End Sub
-End Class
+End Module
 
 #If RomanNumerals = True
 I   1
