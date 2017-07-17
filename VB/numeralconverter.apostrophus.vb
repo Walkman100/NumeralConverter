@@ -1,7 +1,7 @@
-Public Class NumeralConverter
-    Shared tmpString As String = ""
+Module NumeralConverter
+    Dim tmpString As String = ""
 
-    Public Shared Sub Main(args As String())
+    Sub Main(args As String())
         If args.Length = 0 Then
             Console.Write("Input Arabic or Roman number? (a/r): ")
             tmpString = Console.ReadKey().Key.ToString
@@ -37,19 +37,20 @@ Public Class NumeralConverter
         End If
     End Sub
 
-    Shared Sub WriteUsage()
+    Sub WriteUsage()
         Dim flags as String = " [-h|-r [roman number]|-a [arabic number]]"
+        Dim programPath As String = System.Reflection.Assembly.GetExecutingAssembly().CodeBase
         If My.Computer.Info.OSPlatform = "Unix" Then
-            Console.Writeline("Usage: mono " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & flags)
+            Console.Writeline("Usage: mono " & programPath.Substring(programPath.LastIndexOf("/") +1) & flags)
         ElseIf My.Computer.Info.OSPlatform = "Win32NT" Then
-            Console.Writeline("Usage: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & flags)
+            Console.Writeline("Usage: " & programPath.Substring(programPath.LastIndexOf("/") +1) & flags)
         Else
             Console.Writeline("Unrecognised platform """ & My.Computer.Info.OSPlatform & """! Please report at https://github.com/Walkman100/NumeralConverter/issues/new")
-            Console.Writeline("Default usage info: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe " & flags)
+            Console.Writeline("Default usage info: " & System.Diagnostics.Process.GetCurrentProcess.ProcessName & ".exe" & flags)
         End If
     End Sub
 
-    Shared Sub CheckAndOutputRomanNumeral(input as String)
+    Sub CheckAndOutputRomanNumeral(input as String)
         If IsNumeric(input) Then
             If input.Length < 19 Then
                 OutputRomanNumeral(input)
@@ -61,7 +62,7 @@ Public Class NumeralConverter
         End If
     End Sub
 
-    Shared Sub OutputRomanNumeral(number As ULong)
+    Sub OutputRomanNumeral(number As ULong)
     ' See https://en.wikipedia.org/wiki/Roman_numerals#Apostrophus
         If number > 100000 Then
             Dim i As Long
@@ -137,7 +138,7 @@ Public Class NumeralConverter
         Console.Writeline()
     End Sub
 
-    Shared Sub OutputArabicNumber(RomanNumber As String)
+    Sub OutputArabicNumber(RomanNumber As String)
         RomanNumber = RomanNumber.ToUpper
         Dim i As Long
         For i = 0 to RomanNumber.Length - 1
@@ -161,7 +162,7 @@ Public Class NumeralConverter
                     End
             End Select
         Next
-        ' Now we have the roman number in arabic numbers (so we can use < and >), now we just add it all
+        ' Now we have the roman number in arabic numbers (so we can use < and >), we just add it all
         Dim ArabicNumber as Long = 0
         RomanNumber = RomanNumber & "0" ' Because loops, length calculation and next letter calculation
         For i = 0 to RomanNumber.Length - 1
@@ -203,7 +204,7 @@ Public Class NumeralConverter
         Next
         Console.Writeline(ArabicNumber)
     End Sub
-End Class
+End Module
 
 #If RomanNumerals = True
 I   1
