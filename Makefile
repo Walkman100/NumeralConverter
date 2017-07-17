@@ -7,7 +7,16 @@ numeralconvertervb: numeralconverter.exe
 numeralconverter.exe: $(VBFILES)
 	$(VBC) $(VBCFLAGS) -out:numeralconverter.exe $(VBFILES)
 
+apo: numeralconverter.apostrophus.exe
+apostro: numeralconverter.apostrophus.exe
+apostrophus: numeralconverter.apostrophus.exe
+numeralconverter.apostrophus.exe: VB/numeralconverter.apostrophus.vb VB/AssemblyInfo.vb
+	$(VBC) $(VBCFLAGS) -out:numeralconverter.apostrophus.exe VB/numeralconverter.apostrophus.vb VB/AssemblyInfo.vb
+
 clean:
 	$(RM) numeralconverter.exe
+	$(RM) numeralconverter.apostrophus.exe
 	$(RM) -r VB/bin
+
+all: numeralconvertervb apo
 # in case you had been using MonoDevelop
