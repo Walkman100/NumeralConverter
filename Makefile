@@ -17,6 +17,6 @@ clean:
 	$(RM) numeralconverter.exe
 	$(RM) numeralconverter.apostrophus.exe
 	$(RM) -r VB/bin
+# in case you had been using MonoDevelop
 
 all: numeralconvertervb apo
-# in case you had been using MonoDevelop

@@ -11,7 +11,7 @@ cd NumeralConverter
 compile
 numeralconverter -h
 # on linux:
-./compile.sh
+make
 mono numeralconverter.exe -h
 ```
 
